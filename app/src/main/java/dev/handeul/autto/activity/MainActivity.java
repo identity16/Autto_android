@@ -1,8 +1,10 @@
-package dev.handeul.autto;
+package dev.handeul.autto.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import dev.handeul.autto.R;
 
 public class MainActivity extends AppCompatActivity {
 

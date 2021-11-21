@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Autto</string>
+    <string name="main_draw_num_dummy">000</string>
+    <string name="main_draw_countdown_dummy">01일 18시간 24분 30초</string>
+    <string name="main_draw_text1">회 결과발표까지</string>
+    <string name="main_draw_text2">남았습니다.</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
