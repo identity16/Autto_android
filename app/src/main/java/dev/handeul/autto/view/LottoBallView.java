@@ -15,9 +15,11 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import dev.handeul.autto.R;
+import dev.handeul.autto.utils.UnitUtils;
 
 public class LottoBallView extends View {
     private static final String TAG = "LottoBallView";
+    public static final int DEFAULT_SIZE = 34;
 
     private Integer number;
     private Paint ballPaint;
@@ -43,7 +45,7 @@ public class LottoBallView extends View {
     private void init() {
         textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint.setColor(Color.WHITE);
-        textPaint.setTextSize(convertDpToPixel(12));
+        textPaint.setTextSize(UnitUtils.calcDpForLayoutParams(getContext(), 12));
         textPaint.setStyle(Paint.Style.FILL);
         textPaint.setTextAlign(Paint.Align.CENTER);
 
@@ -70,7 +72,7 @@ public class LottoBallView extends View {
 
     private int getColorForNumber(int number) {
         if(number <= 0 || number > 45) {
-            return Color.parseColor("#333");
+            return Color.parseColor("#333333");
         }
 
         if(number <= 10) {
@@ -86,21 +88,11 @@ public class LottoBallView extends View {
         }
     }
 
-    /* Getter, Setter */
-    public Integer getNumber() {
-        return number;
-    }
-
     public void setNumber(Integer number) {
         this.number = number;
+        ballPaint.setColor(getColorForNumber(number));
         invalidate();
         requestLayout();
-    }
-
-    private float convertDpToPixel(float dp){
-        Resources resources = this.getResources();
-        DisplayMetrics metrics = resources.getDisplayMetrics();
-        return dp * ((float)metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
     }
 
 }

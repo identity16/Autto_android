@@ -7,7 +7,6 @@ import java.util.List;
 public class Round {
     private static final int LEN_NUMBERS = 6;
 
-
     private final int id;
     private final List<Integer> numbers;
     private final int bonusNum;

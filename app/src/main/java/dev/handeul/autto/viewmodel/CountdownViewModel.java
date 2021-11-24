@@ -1,21 +1,16 @@
 package dev.handeul.autto.viewmodel;
 
-import android.util.Log;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import java.sql.Time;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 import dev.handeul.autto.model.Round;
-import dev.handeul.autto.repository.DHLotteryRepository;
+import dev.handeul.autto.repository.RoundRepository;
 
 public class CountdownViewModel extends ViewModel {
     private static final String TAG = "CountdownViewModel";
@@ -27,7 +22,7 @@ public class CountdownViewModel extends ViewModel {
         MutableLiveData<Round> liveRound = new MutableLiveData<>();
         MutableLiveData<Long> liveRemain = new MutableLiveData<>();
 
-        DHLotteryRepository.getInstance().getLatestRound((round) -> {
+        RoundRepository.getInstance().getLatestRound((round) -> {
             Calendar nextDate = Calendar.getInstance();
             nextDate.setTime(round.getDate());
             nextDate.add(Calendar.DATE, 7);

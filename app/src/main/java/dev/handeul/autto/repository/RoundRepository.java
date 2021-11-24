@@ -11,114 +11,35 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
+import dev.handeul.autto.model.Game;
 import dev.handeul.autto.model.Round;
 import dev.handeul.autto.webservice.DHLotteryService;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
-public class DHLotteryRepository {
-    private static final String TAG = "DHLottery";
-    private static final DHLotteryRepository instance = new DHLotteryRepository();
+public class RoundRepository {
+    private static final String TAG = "RoundRepository";
+    private static final RoundRepository instance = new RoundRepository();
 
     private final DHLotteryService service;
 
-    private DHLotteryRepository() {
-        String BASE_URL = "https://dhlottery.co.kr/";
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .build();
-
-        service = retrofit.create(DHLotteryService.class);
+    private RoundRepository() {
+        service = BaseRepository.getInstance().getService();
     }
 
-    public static DHLotteryRepository getInstance() {
+    public static RoundRepository getInstance() {
         return instance;
-    }
-
-    public void listRounds(Consumer<List<Round>> callback) {
-        Call<ResponseBody> historyPage = this.service.getRoundHistoryPage();
-
-        historyPage.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
-                try {
-                    List<Round> roundList = new ArrayList<>();
-                    ResponseBody body = response.body();
-                    String html = "";
-
-                    if (body != null) {
-                        html = body.string();
-                    }
-
-                    Document doc = Jsoup.parse(html);
-                    Elements eRows = doc.select("tr:nth-child(n+3)");
-
-                    for(Element eRow : eRows) {
-                        Elements eCells = eRow.select("td:not([rowspan])");
-
-                        Round round;
-
-                        int roundId;
-                        int[] numbers = {1, 2, 3, 4, 5, 6};
-                        int bonusNum;
-                        Date date = new Date();
-
-
-                        // Round Id
-                        roundId = Integer.parseInt(eCells.get(0).text());
-
-                        // Date
-                        @SuppressLint("SimpleDateFormat")
-                        SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd");
-
-                        Date tmpDate = df.parse(eCells.get(1).text());
-                        if(tmpDate != null) {
-                            Calendar calendar = Calendar.getInstance();
-                            calendar.setTime(tmpDate);
-                            calendar.set(Calendar.HOUR_OF_DAY, 20);
-                            calendar.set(Calendar.MINUTE, 45);
-                            calendar.set(Calendar.SECOND, 0);
-
-                            date=calendar.getTime();
-                        }
-
-                        // Numbers
-                        for(int i=0; i<6; i++) {
-                            numbers[i] = Integer.parseInt(eCells.get(12 + i).text());
-                        }
-
-                        // Bonus Number
-                        bonusNum = Integer.parseInt(eCells.get(18).text());
-
-                        round = new Round(roundId, numbers, bonusNum, date);
-                        roundList.add(round);
-                    }
-
-                    callback.accept(roundList);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Log.d(TAG, "Round Contruction Error!");
-                }
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable throwable) {
-            }
-        });
     }
 
     public void getLatestRound(Consumer<Round> callback) {
@@ -187,4 +108,5 @@ public class DHLotteryRepository {
             }
         });
     }
+
 }
