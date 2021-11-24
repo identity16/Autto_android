@@ -72,19 +72,19 @@ public class LottoBallView extends View {
 
     private int getColorForNumber(int number) {
         if(number <= 0 || number > 45) {
-            return Color.parseColor("#333333");
+            return Color.parseColor("#aaaaaa");
         }
 
         if(number <= 10) {
-            return Color.parseColor("#fbc400");
+            return Color.parseColor("#ffb600");
         } else if(number <= 20) {
-            return Color.parseColor("#69c8f2");
+            return Color.parseColor("#1b92f2");
         } else if(number <= 30) {
-            return Color.parseColor("#ff7272");
+            return Color.parseColor("#ff4435");
         } else if(number <= 40) {
-            return Color.parseColor("#aaaaaa");
+            return Color.parseColor("#222222");
         } else {
-            return Color.parseColor("#b0d840");
+            return Color.parseColor("#1bb400");
         }
     }
 
