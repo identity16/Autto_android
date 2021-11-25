@@ -42,4 +42,7 @@ public interface DHLotteryService {
     Call<ResponseBody> getPaperPage(
             @Query("barcode") String barcode
     );
+
+    @GET("happy.do?method=healthCultureProc")
+    Call<ResponseBody> getLightestPage();
 }
