@@ -1,29 +1,41 @@
 package dev.handeul.autto.model;
 
 public class Game {
-    public enum State {
-        UNKNOWN, FIRST, SECOND, THIRD, FOURTH, FIFTH, FAIL
+    public static class State {
+        public static final String UNKNOWN = "미추첨";
+        public static final String FIRST = "1등";
+        public static final String SECOND = "2등";
+        public static final String THIRD = "3등";
+        public static final String FOURTH = "4등";
+        public static final String FIFTH = "5등";
+        public static final String FAIL = "낙첨";
+
+        private State() {}
     }
 
     private final int roundId;
     private final Integer[] numbers;
-    private final State state;
+    private final String state;
 
-    public Game(int roundId, Integer[] numbers, String strState) {
-        this(roundId, numbers, getStateFromString(strState));
-    }
-
-    public Game(int roundId, Integer[] numbers, State state) {
+    public Game(int roundId, Integer[] numbers, String state) {
         this.roundId = roundId;
         this.numbers = numbers;
-        this.state = state;
+        this.state = getStateFromString(state);
+    }
+
+    public int getRoundId() {
+        return roundId;
     }
 
     public Integer[] getNumbers() {
         return numbers;
     }
 
-    private static State getStateFromString(String strState) {
+    public String getState() {
+        return state;
+    }
+
+    private static String getStateFromString(String strState) {
         String str = strState.trim();
         switch (str) {
             case "자동":

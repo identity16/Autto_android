@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Autto">
         <activity
+            android:name=".activity.ResultActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.PurchaseSettingActivity"
             android:exported="true" />
         <activity

@@ -73,11 +73,8 @@ public class GameRepository {
                     for(Element eRow : eRows) {
                         Elements eCells = eRow.getElementsByTag("td");
                         String barcode = eCells.get(3).text();
-                        String status = eCells.get(5).text();
 
-                        if("미추첨".equals(status)) {
-                            barcodeList.add(barcode);
-                        }
+                        barcodeList.add(barcode);
                     }
 
                     getGamesFromBarcode(barcodeList, callback);

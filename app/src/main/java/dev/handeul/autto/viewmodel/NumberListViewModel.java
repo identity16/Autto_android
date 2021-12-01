@@ -26,7 +26,10 @@ public class NumberListViewModel extends ViewModel {
         today = calendar.getTime();
 
         RoundRepository.getInstance().getLatestRound(round -> {
-            Date startDate = round.getDate();
+            calendar.setTime(round.getDate());
+            calendar.add(Calendar.DATE, 1);
+
+            Date startDate = calendar.getTime();
             GameRepository.getInstance().getBuyHistory(startDate, today, liveBuyList::setValue);
         });
 

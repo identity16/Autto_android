@@ -20,4 +20,12 @@
     <string name="login_placeholder_id">아이디를 입력해주세요.</string>
     <string name="login_placeholder_pw">비밀번호를 입력해주세요.</string>
     <string name="login_no_account"><u>계정이 없어요 :(</u></string>
+    <string name="result">당첨결과</string>
+    <string name="recent_round_num">최근 회차 번호</string>
+    <string name="nth_round_result">회 당첨 결과</string>
+    <string name="dummy_date">(0000. 00. 00) 추첨</string>
+    <string name="expire_duration">지급기한 1년</string>
+    <string name="my_num">내 번호</string>
+    <string name="no_history">구매 기록이 없습니다.</string>
+    <string name="plus_icon">plus icon</string>
 </resources>
