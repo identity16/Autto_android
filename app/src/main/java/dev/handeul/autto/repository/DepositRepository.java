@@ -60,7 +60,13 @@ public class DepositRepository {
                     callback.accept(balance);
                 } else {
                     Log.d(TAG, "로그인 재시도");
-                    userRepo.login(() -> getMyDeposit(callback));
+                    userRepo.login((isSuccess) -> {
+                        if(isSuccess) {
+                            getMyDeposit(callback);
+                        } else {
+                            callback.accept(null);
+                        }
+                    });
                 }
 
 

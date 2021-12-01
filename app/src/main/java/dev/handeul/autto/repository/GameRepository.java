@@ -81,9 +81,17 @@ public class GameRepository {
                     }
 
                     getGamesFromBarcode(barcodeList, callback);
-                } else {
+                } else if(eLogin.html().contains("로그인")) {
                     Log.d(TAG, "로그인 재시도");
-                    userRepo.login(() -> getBuyHistory(startDate, endDate, callback));
+                    userRepo.login((isSuccess) -> {
+                        if(isSuccess) {
+                            getBuyHistory(startDate, endDate, callback);
+                        } else {
+                            callback.accept(null);
+                        }
+                    });
+                } else {
+                    callback.accept(new ArrayList<>());
                 }
 
 
@@ -121,7 +129,13 @@ public class GameRepository {
                     html = body.string();
                 } else {
                     Log.d(TAG, "로그인 재시도");
-                    userRepo.login(() -> getGamesFromBarcode(barCodeWithoutSpace, callback));
+                    userRepo.login((isSuccess) -> {
+                        if(isSuccess) {
+                            getGamesFromBarcode(barCodeWithoutSpace, callback);
+                        } else {
+                            callback.accept(null);
+                        }
+                    });
                 }
 
                 Document doc = Jsoup.parse(html);
@@ -182,7 +196,6 @@ public class GameRepository {
         getGamesFromBarcode(barcodes.get(idx[0]), games -> {
             gameList.addAll(games);
             idx[0]++;
-
             if(idx[0] == len) {
                 callback.accept(gameList);
             }

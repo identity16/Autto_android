@@ -23,7 +23,6 @@ public interface DHLotteryService {
     Call<ResponseBody> login(
             @Field("userId") String userId,
             @Field("password") String password,
-            @Field("returnUrl") String returnUrl,
             @Field("checkSave") String checkSave);
 
     @FormUrlEncoded

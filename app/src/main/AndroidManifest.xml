@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.handeul.autto">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".AuttoApp"
         android:allowBackup="true"
+        android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Autto"
-        android:fullBackupContent="false">
+        android:theme="@style/Theme.Autto">
+        <activity
+            android:name=".activity.LoginActivity"
+            android:exported="true" />
         <activity
             android:name=".activity.MainActivity"
-            android:theme="@style/SplashTheme"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Autto</string>
     <string name="preference_file_key">dev.handeul.autto.DHACCOUNT</string>
+    <string name="login">로그인</string>
     <string name="main_draw_num_dummy">000</string>
     <string name="main_draw_countdown_dummy">01일 18시간 24분 30초</string>
     <string name="main_draw_text1">회 결과발표까지</string>
@@ -11,4 +12,11 @@
     <string name="charge">충전</string>
     <string name="deposit_unit">원</string>
     <string name="default_deposit_balance">0</string>
+    <string name="login_welcome">환영합니다.</string>
+    <string name="login_help">동행 복권 계정으로 로그인해 주세요.</string>
+    <string name="login_label_id">아이디</string>
+    <string name="login_label_pw">비밀번호</string>
+    <string name="login_placeholder_id">아이디를 입력해주세요.</string>
+    <string name="login_placeholder_pw">비밀번호를 입력해주세요.</string>
+    <string name="login_no_account"><u>계정이 없어요 :(</u></string>
 </resources>
