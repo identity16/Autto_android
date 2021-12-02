@@ -190,12 +190,22 @@ public class GameRepository {
         int len = barcodes.size();
         List<Game> gameList = new ArrayList<>();
 
-        getGamesFromBarcode(barcodes.get(idx[0]), games -> {
-            gameList.addAll(games);
-            idx[0]++;
-            if(idx[0] == len) {
-                callback.accept(gameList);
+        Consumer<List<Game>> recursive = new Consumer<List<Game>>() {
+            @Override
+            public void accept(List<Game> games) {
+                recursiveCall(games);
             }
-        });
+
+            private void recursiveCall(List<Game> games) {
+                gameList.addAll(games);
+                idx[0]++;
+                if(idx[0] == len) {
+                    callback.accept(gameList);
+                } else {
+                    getGamesFromBarcode(barcodes.get(idx[0]), this::recursiveCall);
+                }
+            }
+        };
+        getGamesFromBarcode(barcodes.get(idx[0]), recursive);
     }
 }

@@ -39,7 +39,10 @@ public class NumberListViewModel extends ViewModel {
             calendar.add(Calendar.DATE, 1);
 
             Date startDate = calendar.getTime();
-            GameRepository.getInstance().getBuyHistory(startDate, today, liveBuyList::setValue);
+            GameRepository.getInstance().getBuyHistory(startDate, today, buyList -> {
+                Log.d(TAG, buyList.toString());
+                liveBuyList.setValue(buyList);
+            });
         });
     }
 }

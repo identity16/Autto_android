@@ -9,7 +9,7 @@
     <string name="main_bought_num_title">이번 주 구매 번호</string>
     <string name="main_deposit_title">예치금</string>
     <string name="my_deposit">나의 예치금</string>
-    <string name="set_purchase"><u>구매설정</u></string>
+    <string name="set_purchase"><u>구매하기</u></string>
     <string name="charge">충전</string>
     <string name="deposit_unit">원</string>
     <string name="default_deposit_balance">0</string>
@@ -29,10 +29,10 @@
     <string name="no_history">구매 기록이 없습니다.</string>
     <string name="plus_icon">plus icon</string>
     <string name="confirm">확인</string>
-    <string name="purchase_schedule">구매 일정</string>
+    <string name="purchase_schedule">구매하기</string>
     <string name="purchase_i">저는</string>
     <string name="purchase_every">마다</string>
-    <string name="purchase_won">원 씩</string>
+    <string name="purchase_won">원</string>
     <string name="purchase_auto">으로</string>
     <string name="purchase_do">구매할래요</string>
     <string name="purchase_label_frequency">얼마나 자주 구매할지 선택해주세요</string>

@@ -39,6 +39,7 @@ public class NumberListFragment extends Fragment {
 
         int ballSize = UnitUtils.calcDpForLayoutParams(getContext(), LottoBallView.DEFAULT_SIZE);
         int ballMargin = UnitUtils.calcDpForLayoutParams(getContext(), 8);
+        int linePadding = UnitUtils.calcDpForLayoutParams(getContext(), 6);
 
         viewModel.buyList.observe(getViewLifecycleOwner(), games -> {
             if(games == null) {
@@ -52,6 +53,7 @@ public class NumberListFragment extends Fragment {
                 return;
             }
 
+            binding.numberListFragment.removeAllViews();
             if(games.size() == 0) {
                 TextView noDataText = new TextView(getContext());
                 noDataText.setText("구매 기록이 없습니다.");
@@ -59,12 +61,12 @@ public class NumberListFragment extends Fragment {
                 noDataText.setGravity(Gravity.CENTER);
                 noDataText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
-                binding.numberListFragment.removeAllViews();
                 binding.numberListFragment.addView(noDataText);
             }
 
             for(Game game : games) {
                 LinearLayout lGame = new LinearLayout(getContext());
+                lGame.setPadding(0, linePadding, 0, linePadding);
                 Integer[] numbers = game.getNumbers();
 
                 lGame.setGravity(Gravity.CENTER);
@@ -81,7 +83,6 @@ public class NumberListFragment extends Fragment {
                     lGame.addView(vBall);
                 }
 
-                binding.numberListFragment.removeAllViews();
                 binding.numberListFragment.addView(lGame);
             }
         });
