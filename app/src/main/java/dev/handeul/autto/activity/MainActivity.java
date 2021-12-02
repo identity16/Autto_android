@@ -20,12 +20,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // TODO: Remove the code clearing SharedPreferences when app is started
-//        if(!isCleared) {
-//            Context context = AuttoApp.getContext();
-//            context.getSharedPreferences(context.getString(R.string.preference_file_key), Context.MODE_PRIVATE)
-//                    .edit().clear().apply();
-//            isCleared = true;
-//        }
+        if(!isCleared) {
+            Context context = AuttoApp.getContext();
+            context.getSharedPreferences(context.getString(R.string.preference_file_key), Context.MODE_PRIVATE)
+                    .edit().clear().apply();
+            isCleared = true;
+        }
 
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         binding.btnPurchase.setOnClickListener(v -> {

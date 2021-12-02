@@ -28,4 +28,30 @@
     <string name="my_num">내 번호</string>
     <string name="no_history">구매 기록이 없습니다.</string>
     <string name="plus_icon">plus icon</string>
+    <string name="confirm">확인</string>
+    <string name="purchase_schedule">구매 일정</string>
+    <string name="purchase_i">저는</string>
+    <string name="purchase_every">마다</string>
+    <string name="purchase_won">원 씩</string>
+    <string name="purchase_auto">으로</string>
+    <string name="purchase_do">구매할래요</string>
+    <string name="purchase_label_frequency">얼마나 자주 구매할지 선택해주세요</string>
+    <string name="purchase_label_amount">얼마의 금액으로 구매할지 선택해주세요</string>
+    <string name="purchase_label_auto">어떤 방식으로 구매할지 선택해주세요</string>
+    <string-array name="purchase_frequency">
+        <item>1주일</item>
+        <item>1개월</item>
+    </string-array>
+    <string-array name="purchase_amount">
+        <item>1,000</item>
+        <item>2,000</item>
+        <item>3,000</item>
+        <item>4,000</item>
+        <item>5,000</item>
+    </string-array>
+    <string-array name="purchase_auto">
+        <item>자동</item>
+        <item>수동</item>
+    </string-array>
+
 </resources>

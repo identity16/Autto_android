@@ -33,7 +33,7 @@ public class DepositFragment extends Fragment {
                 assert parentActivity != null;
 
                 Intent intent = new Intent(parentActivity, LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
                 parentActivity.finish();
                 return;
