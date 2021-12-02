@@ -1,5 +1,7 @@
 package dev.handeul.autto.viewmodel;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -19,10 +21,14 @@ public class DepositViewModel extends ViewModel {
     public LiveData<Integer> balance;
 
     public DepositViewModel() {
-        MutableLiveData<Integer> liveBalance = new MutableLiveData<>();
+        balance = new MutableLiveData<>();
 
+        update();
+    }
+
+    public void update() {
+        Log.d(TAG, "update called!");
+        MutableLiveData<Integer> liveBalance = (MutableLiveData<Integer>) balance;
         DepositRepository.getInstance().getMyDeposit(liveBalance::setValue);
-
-        balance = liveBalance;
     }
 }

@@ -7,6 +7,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
+import retrofit2.http.Url;
 
 public interface DHLotteryService {
     @GET("gameResult.do?drwNoStart=1&drwNoEnd=999999&method=allWinExel")
@@ -44,4 +45,14 @@ public interface DHLotteryService {
 
     @GET("happy.do?method=healthCultureProc")
     Call<ResponseBody> getLightestPage();
+
+    @FormUrlEncoded
+    @POST
+    Call<ResponseBody> buyLotto(
+            @Url String url,
+            @Field("round") int round,
+            @Field("direct") String direct,
+            @Field("nBuyAmount") int amount,
+            @Field("param") String paramJSON,
+            @Field("gameCnt") int cnt);
 }

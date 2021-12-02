@@ -17,14 +17,15 @@ import dev.handeul.autto.databinding.FragmentDepositBinding;
 import dev.handeul.autto.viewmodel.DepositViewModel;
 
 public class DepositFragment extends Fragment {
-    FragmentDepositBinding binding;
+    private FragmentDepositBinding binding;
+    private DepositViewModel viewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        DepositViewModel viewModel = new ViewModelProvider(this).get(DepositViewModel.class);
+        viewModel = new ViewModelProvider(this).get(DepositViewModel.class);
         binding = FragmentDepositBinding.inflate(inflater, container, false);
 
         viewModel.balance.observe(getViewLifecycleOwner(), balance -> {
@@ -49,5 +50,9 @@ public class DepositFragment extends Fragment {
         });
 
         return binding.getRoot();
+    }
+
+    public void update() {
+        viewModel.update();
     }
 }

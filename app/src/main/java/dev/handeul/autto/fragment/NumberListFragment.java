@@ -27,13 +27,14 @@ import dev.handeul.autto.viewmodel.NumberListViewModel;
  */
 public class NumberListFragment extends Fragment {
     private FragmentNumberListBinding binding;
+    private NumberListViewModel viewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        NumberListViewModel viewModel = new ViewModelProvider(this).get(NumberListViewModel.class);
+        viewModel = new ViewModelProvider(this).get(NumberListViewModel.class);
         binding = FragmentNumberListBinding.inflate(inflater, container, false);
 
         int ballSize = UnitUtils.calcDpForLayoutParams(getContext(), LottoBallView.DEFAULT_SIZE);
@@ -58,6 +59,7 @@ public class NumberListFragment extends Fragment {
                 noDataText.setGravity(Gravity.CENTER);
                 noDataText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
+                binding.numberListFragment.removeAllViews();
                 binding.numberListFragment.addView(noDataText);
             }
 
@@ -78,10 +80,16 @@ public class NumberListFragment extends Fragment {
 
                     lGame.addView(vBall);
                 }
+
+                binding.numberListFragment.removeAllViews();
                 binding.numberListFragment.addView(lGame);
             }
         });
 
         return binding.getRoot();
+    }
+
+    public void update() {
+        viewModel.update();
     }
 }

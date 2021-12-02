@@ -1,5 +1,7 @@
 package dev.handeul.autto.viewmodel;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -18,7 +20,14 @@ public class NumberListViewModel extends ViewModel {
     public LiveData<List<Game>> buyList;
 
     public NumberListViewModel() {
-        MutableLiveData<List<Game>> liveBuyList = new MutableLiveData<>();
+        buyList = new MutableLiveData<>();
+
+        update();
+    }
+
+    public void update() {
+        Log.d(TAG, "update called!");
+        MutableLiveData<List<Game>> liveBuyList = (MutableLiveData<List<Game>>) buyList;
 
         Calendar calendar = Calendar.getInstance();
         Date today;
@@ -32,7 +41,5 @@ public class NumberListViewModel extends ViewModel {
             Date startDate = calendar.getTime();
             GameRepository.getInstance().getBuyHistory(startDate, today, liveBuyList::setValue);
         });
-
-        buyList = liveBuyList;
     }
 }

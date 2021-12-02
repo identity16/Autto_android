@@ -7,6 +7,7 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import dev.handeul.autto.BuyService;
 import dev.handeul.autto.R;
 import dev.handeul.autto.databinding.ActivityPurchaseSettingBinding;
 
@@ -20,12 +21,6 @@ public class PurchaseSettingActivity extends AppCompatActivity {
                 ActivityPurchaseSettingBinding.inflate(getLayoutInflater());
 
         View view = binding.getRoot();
-        binding.btnBack.setOnClickListener(v -> onBackPressed());
-        binding.btnConfirm.setOnClickListener(v -> {
-            // TODO: 주어진 설정값 저장 및 서비스 (재)시작
-            finish();
-        });
-
         setContentView(view);
 
 
@@ -47,5 +42,16 @@ public class PurchaseSettingActivity extends AppCompatActivity {
                 R.array.purchase_auto, android.R.layout.simple_spinner_item);
         autoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         autoSpinner.setAdapter(autoAdapter);
+
+        // On buttons clicked
+        binding.btnBack.setOnClickListener(v -> onBackPressed());
+        binding.btnConfirm.setOnClickListener(v -> {
+            String selectedAmount =  amountSpinner.getSelectedItem().toString().replaceAll("[^0-9]", "");
+
+            BuyService.startActionBuy(this, Integer.parseInt(selectedAmount));
+            finish();
+        });
+
+
     }
 }
