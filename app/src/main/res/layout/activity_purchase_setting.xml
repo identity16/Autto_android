@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".activity.PurchaseSettingActivity">
 
     <Button
@@ -49,31 +50,31 @@
         app:layout_constraintStart_toEndOf="@+id/amountSpinner"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-<!--    <Spinner-->
-<!--        android:id="@+id/autoSpinner"-->
-<!--        android:layout_width="275dp"-->
-<!--        android:layout_height="48dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:contentDescription="@string/purchase_label_auto"-->
-<!--        android:gravity="center_vertical"-->
-<!--        android:paddingStart="12dp"-->
-<!--        android:paddingEnd="12dp"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/guideline7"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/amountSpinner" />-->
+    <!--    <Spinner-->
+    <!--        android:id="@+id/autoSpinner"-->
+    <!--        android:layout_width="275dp"-->
+    <!--        android:layout_height="48dp"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:contentDescription="@string/purchase_label_auto"-->
+    <!--        android:gravity="center_vertical"-->
+    <!--        android:paddingStart="12dp"-->
+    <!--        android:paddingEnd="12dp"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/guideline7"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/amountSpinner" />-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView11"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="48dp"-->
-<!--        android:layout_marginStart="8dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:gravity="center"-->
-<!--        android:text="@string/purchase_every"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textSize="20sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/freqSpinner"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView9" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView11"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="48dp"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:text="@string/purchase_every"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:textSize="20sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/freqSpinner"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView9" />-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/purchaseActionBar"
@@ -139,29 +140,29 @@
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/amountSpinner" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView10"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="48dp"-->
-<!--        android:layout_marginStart="8dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:gravity="center"-->
-<!--        android:text="@string/purchase_auto"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textSize="20sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/autoSpinner"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView12" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView10"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="48dp"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:text="@string/purchase_auto"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:textSize="20sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/autoSpinner"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView12" />-->
 
-<!--    <Spinner-->
-<!--        android:id="@+id/freqSpinner"-->
-<!--        android:layout_width="275dp"-->
-<!--        android:layout_height="48dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:contentDescription="@string/purchase_label_frequency"-->
-<!--        android:gravity="center_vertical"-->
-<!--        android:paddingStart="12dp"-->
-<!--        android:paddingEnd="12dp"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/guideline7"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView9" />-->
+    <!--    <Spinner-->
+    <!--        android:id="@+id/freqSpinner"-->
+    <!--        android:layout_width="275dp"-->
+    <!--        android:layout_height="48dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:contentDescription="@string/purchase_label_frequency"-->
+    <!--        android:gravity="center_vertical"-->
+    <!--        android:paddingStart="12dp"-->
+    <!--        android:paddingEnd="12dp"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/guideline7"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView9" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

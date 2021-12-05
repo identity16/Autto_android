@@ -77,6 +77,7 @@ public class ResultActivity extends AppCompatActivity {
         int ballMargin = UnitUtils.calcDpForLayoutParams(this, 8);
         int cardElevation = UnitUtils.calcDpForLayoutParams(this, 4);
         int cardPadding = UnitUtils.calcDpForLayoutParams(this, 16);
+        int cardMargin = UnitUtils.calcDpForLayoutParams(this, 8);
 
         binding.buyListLayout.removeAllViews();
 
@@ -87,6 +88,7 @@ public class ResultActivity extends AppCompatActivity {
 
             LinearLayout.LayoutParams cardParams =
                     new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            cardParams.setMargins(0, 0, 0, cardMargin);
             card.setLayoutParams(cardParams);
             card.setBackgroundResource(R.drawable.rounded);
             card.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
